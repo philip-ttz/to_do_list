@@ -55,34 +55,34 @@
                 </button>
             </div>
             <label>
-                <input class="input" type="text" placeholder="" required="">
+                <input class="input" name="title" type="text" placeholder="" required="">
                 <span>Title</span>
             </label>
 
 
             <div class="priority">
                 <label>
-                    <input type="radio" name="radio" checked="">
+                    <input type="radio" value="low" name="priority" checked="">
                     <span>Low</span>
                 </label>
                 <label>
-                    <input type="radio" name="radio">
+                    <input type="radio" value="medium" name="priority">
                     <span>Medium</span>
                 </label>
                 <label>
-                    <input type="radio" name="radio">
+                    <input type="radio" value="high" name="priority">
                     <span>High</span>
                 </label>
 
             </div>
 
             <label>
-                <input class="input" type="text" placeholder="" onfocus="(this.type='date')"
+                <input class="input" type="text" name="duedate" placeholder="" onfocus="(this.type='date')"
                 onblur="(this.type='text')" required="">
                 <span>Due Date</span>
             </label>
             <label>
-                <input class="input" type="text" placeholder="" required="">
+                <input class="input" type="text" name="description" placeholder="" required="">
                 <span>Description</span>
             </label>
             <button type="submit" class="submit">Submit</button>
