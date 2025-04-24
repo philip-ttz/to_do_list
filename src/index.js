@@ -9,3 +9,13 @@ radios.forEach(radio => {
       }
   });
 });
+
+const add_task = document.querySelector('.add-task');
+const close_form = document.querySelector('.close-form');
+const task_form = document.querySelector('.overlay');   
+add_task.addEventListener('click', () => {
+    task_form.classList.toggle('hidden');
+});
+close_form.addEventListener('click', () => {
+    task_form.classList.toggle('hidden');
+});

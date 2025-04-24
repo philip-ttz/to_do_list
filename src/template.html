@@ -44,6 +44,50 @@
             <div class="text">Task</div>
         </button>
     </div>
+    <!-- From Uiverse.io by ammarsaa -->
+    <div class="overlay hidden">
+        <form class="form">
+            <div class="form-header">
+                <p class="title">New Task</p>
+                <button class="close-form" type="reset">
+                    <span class="X"></span>
+                    <span class="Y"></span>
+                </button>
+            </div>
+            <label>
+                <input class="input" type="text" placeholder="" required="">
+                <span>Title</span>
+            </label>
+
+
+            <div class="priority">
+                <label>
+                    <input type="radio" name="radio" checked="">
+                    <span>Low</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio">
+                    <span>Medium</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio">
+                    <span>High</span>
+                </label>
+
+            </div>
+
+            <label>
+                <input class="input" type="text" placeholder="" onfocus="(this.type='date')"
+                onblur="(this.type='text')" required="">
+                <span>Due Date</span>
+            </label>
+            <label>
+                <input class="input" type="text" placeholder="" required="">
+                <span>Description</span>
+            </label>
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    </div>
 </body>
 
 </html>
