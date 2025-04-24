@@ -98,6 +98,10 @@ header {
     justify-content: center;
     padding-bottom: 5px;
 }
+.task > .sign {
+    font-size: 1.5em;
+    padding-bottom: 3px;
+}
 
 /* text */
 .text {
@@ -110,11 +114,18 @@ header {
     font-weight: 600;
     transition-duration: .3s;
 }
+.task > .text {
+    font-size: 14px;
+    font-weight: 500;
+}
 
 /* hover effect on button width */
 .Btn:hover {
     width: 125px;
     transition-duration: .3s;
+}
+.task.Btn:hover {
+    width: 100px;
 }
 
 .Btn:hover .sign {
@@ -122,6 +133,9 @@ header {
     transition-duration: .3s;
     padding-left: 10px;
     padding-bottom: 5px;
+}
+.task.Btn:hover .sign {
+    padding-bottom: 3px;
 }
 
 /* hover effect button's text */
