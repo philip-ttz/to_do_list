@@ -1,5 +1,5 @@
 /* From Uiverse.io by ammarsaa */
-.overlay {
+.overlay, .overlay_2 {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -17,7 +17,7 @@
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.form {
+.form , .form2{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -46,11 +46,11 @@
     gap: 6px;
 }
 
-.form label {
+.form label, .form2 label {
     position: relative;
 }
 
-.form label .input {
+.form label .input, .form select, .form2 label .input, .form2 select {
     color: rgba(51, 65, 85, 1);
     width: 100%;
     padding: 20px 05px 05px 10px;
@@ -59,7 +59,12 @@
     border-radius: 10px;
 }
 
-.form label .input+span {
+#project {
+    padding: 10px 05px;
+    font-size: 16px;
+}
+
+.form label .input+span, .form2 label .input+span {
     color: rgba(51, 65, 85, 1);
     position: absolute;
     left: 10px;
@@ -69,13 +74,14 @@
     transition: 0.3s ease;
 }
 
-.form label .input:placeholder-shown+span {
+.form label .input:placeholder-shown+span, .form2 label .input:placeholder-shown+span {
     top: 12.5px;
     font-size: 0.9em;
 }
 
 .form label .input:focus+span,
-.form label .input:valid+span {
+.form label .input:valid+span, .form2 label .input:focus+span,
+.form2 label .input:valid+span {
     color: rgba(51, 65, 85, 1);
     top: 7px;
     font-size: 0.7em;
@@ -161,7 +167,7 @@
 }
 
 /* From Uiverse.io by javierBarroso */
-.close-form {
+.close-form, .close-form2 {
     position: relative;
     width: 2em;
     height: 2em;
@@ -193,11 +199,11 @@
     transform: translateX(-50%) rotate(-45deg);
 }
 
-.close-form:hover {
+.close-form:hover, .close-form2:hover {
     background-color: rgb(211, 21, 21);
 }
 
-.close-form:active {
+.close-form:active, .close-form2:active {
     background-color: rgb(130, 0, 0);
 }
 

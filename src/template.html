@@ -17,12 +17,12 @@
     <header>
         <div class="radio-inputs">
             <label class="radio">
-                <input type="radio" value="all" name="radio" checked="">
-                <span class="name">All Tasks</span>
+                <input type="radio" value="all" name="radio" >
+                <span class="name">All </span>
             </label>
             <label class="radio">
-                <input type="radio" value="today" name="radio">
-                <span class="name">Tasks Today</span>
+                <input type="radio" value="today" name="radio" checked="">
+                <span class="name">Today</span>
             </label>
         </div>
         <div class="add-project">
@@ -75,15 +75,33 @@
                 </label>
 
             </div>
-
+            <select id="project" name="project" required="">
+                <option value="all">All Tasks</option>
+            </select>
             <label>
                 <input class="input" type="text" name="duedate" placeholder="" onfocus="(this.type='date')"
-                onblur="(this.type='text')" required="">
+                    onblur="(this.type='text')" required="">
                 <span>Due Date</span>
             </label>
             <label>
                 <input class="input" type="text" name="description" placeholder="" required="">
                 <span>Description</span>
+            </label>
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    </div>
+    <div class="overlay_2 hidden">
+        <form class="form2">
+            <div class="form-header">
+                <p class="title">New Project</p>
+                <button class="close-form2" type="reset">
+                    <span class="X"></span>
+                    <span class="Y"></span>
+                </button>
+            </div>
+            <label>
+                <input class="input" name="title" type="text" placeholder="" required="">
+                <span>Title</span>
             </label>
             <button type="submit" class="submit">Submit</button>
         </form>
