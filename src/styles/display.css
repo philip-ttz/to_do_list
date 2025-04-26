@@ -26,6 +26,11 @@
 }
 
 .card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background-color: #6A2C70;
     color: #fff;
     display: flex;
@@ -38,15 +43,39 @@
 }
 
 .card-back {
-    background-color: #F08A5D;
-    color: #fff;
+    background-color: #6f6f8b;
+    color: #303030;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 10px solid #F08A5D;
+    border: 10px solid #6f6f8b;
     border-radius: 10px;
     justify-content: center;
     font-size: 12px;
-    gap: 5px;
+    gap: 20px;
     transform: rotateY(180deg);
+}
+
+.low {
+    font-size: 12px;
+    font-weight: 500;
+    color: #82e082;
+}
+
+.medium {
+    font-size: 12px;
+    font-weight: 500;
+    color: #f9c74f;
+}
+
+.high {
+    font-size: 12px;
+    font-weight: 500;
+    color: #f3722c;
+}
+
+#description {
+    font-size: 12px;
+    font-weight: 500;
+    color: #d4d4d4;
 }

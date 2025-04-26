@@ -42,13 +42,13 @@ class Displaying {
 
             card_front.innerHTML = `
                 <p>${task.title}</p>
+                <p id="priority" ${task.priority === "Low" ? 'class="low"' : ''}${task.priority === "Medium" ? 'class="medium"' : 'class="high"'} >${task.priority} Priority</p>
+            
             `;
             card_back.innerHTML = `
-                <p>${task.description}</p>
-                <p>${task.dueDate}</p>
-                <p>${task.priority}</p>
-                <p>${task.completed}</p>
-            `;
+                <p id="description">${task.description}</p>
+                <p id="duedate">Till: ${task.dueDate}</p>
+                `;
 
             card.appendChild(card_inner);
             card_inner.appendChild(card_front);
