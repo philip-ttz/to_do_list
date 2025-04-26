@@ -1,3 +1,5 @@
+import "../styles/display.css";
+
 class Displaying {
     #main;
     #projects
@@ -23,6 +25,37 @@ class Displaying {
 
             this.#projects.appendChild(projectElement);
         });
+    }
+
+    display_task_overview(projects, currentproject) {
+        this.#main.innerHTML = '';
+
+        projects[currentproject].forEach((task) => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            const card_inner = document.createElement('div');
+            card_inner.classList.add('card-inner');
+            const card_front = document.createElement('div');
+            card_front.classList.add('card-front');
+            const card_back = document.createElement('div');
+            card_back.classList.add('card-back');
+
+            card_front.innerHTML = `
+                <p>${task.title}</p>
+            `;
+            card_back.innerHTML = `
+                <p>${task.description}</p>
+                <p>${task.dueDate}</p>
+                <p>${task.priority}</p>
+                <p>${task.completed}</p>
+            `;
+
+            card.appendChild(card_inner);
+            card_inner.appendChild(card_front);
+            card_inner.appendChild(card_back);
+
+            this.#main.appendChild(card);
+        })
     }
 }
 

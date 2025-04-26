@@ -15,7 +15,12 @@ form.addEventListener('submit', function (event) {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
     document.querySelector(".overlay").classList.toggle('hidden');
-    projects[currentproject].push(create_to_do(data.title, data.description, data.dueDate, data.priority));
+    const newTask = create_to_do(data.title, data.description, data.duedate, data.priority);
+    projects[Overlay.currentproject].push(newTask);
+    if (Overlay.currentproject != "All"){
+        projects["All"].push(newTask);
+    }
+    Displaying.display_task_overview(projects, Overlay.currentproject);
     console.log(projects);
     form.reset();
 });
