@@ -8,6 +8,7 @@ import create_project from './scripts/create_project.js';
 
 const form = document.querySelector('.form');
 const form2 = document.querySelector('.form2');
+const projects_in_form = document.getElementById('project');
 let projects = {"All" : [], "Today" : []};
 
 form.addEventListener('submit', function (event) {
@@ -16,8 +17,8 @@ form.addEventListener('submit', function (event) {
     const data = Object.fromEntries(formData.entries());
     document.querySelector(".overlay").classList.toggle('hidden');
     const newTask = create_to_do(data.title, data.description, data.duedate, data.priority);
-    projects[Overlay.currentproject].push(newTask);
-    if (Overlay.currentproject != "All"){
+    projects[data.project].push(newTask);
+    if (data.project != "All"){
         projects["All"].push(newTask);
     }
     Displaying.display_task_overview(projects, Overlay.currentproject);
@@ -30,12 +31,20 @@ form2.addEventListener('submit', function (event) {
     const data = Object.fromEntries(formData.entries());
     document.querySelector(".overlay_2").classList.toggle('hidden');
     create_project(data.title, projects);
-    console.log(projects);
     Displaying.display_project_overview(projects, Overlay.currentproject);
     Overlay.update_project_overview();
-    console.log(Overlay.currentproject);
+    projects_in_form.innerHTML = ''; // Clear previous options
+    Object.keys(projects).forEach((project) => {
+        if (project === "Today") return;
+        const projectElement = document.createElement('option');
+        projectElement.value = project;
+        projectElement.textContent = project;
+        projects_in_form.appendChild(projectElement);
+    });
     form2.reset();
 });
-
+document.addEventListener('radioChange', () => {
+    Displaying.display_task_overview(projects, Overlay.currentproject);
+});
 
 Overlay.initialize();

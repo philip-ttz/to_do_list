@@ -51,6 +51,8 @@ class Overlay {
                     this.currentproject = selectedValue;
                     console.log(this.currentproject);
                 }
+                const customEvent = new CustomEvent('radioChange');
+                document.dispatchEvent(customEvent);
             });
         });
     }
