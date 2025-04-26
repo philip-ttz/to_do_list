@@ -1,20 +1,27 @@
 class Overlay {
-    #radios;
     #add_task;
     #add_project
     #close_form;
     #close_form2
     #task_form;
     #project_form;
+    #currentproject;
 
     constructor() {
-        this.#radios = document.querySelectorAll('input[name="radio"]');
         this.#add_task = document.querySelector('.add-task');
         this.#close_form = document.querySelector('.close-form');
         this.#close_form2 = document.querySelector('.close-form2');
         this.#task_form = document.querySelector('.overlay');
         this.#add_project = document.querySelector('.add-project');
         this.#project_form = document.querySelector('.overlay_2');
+        this.#currentproject = "All";
+    }
+
+    get currentproject() {
+        return this.#currentproject;
+    }
+    set currentproject(value) {
+        this.#currentproject = value;
     }
 
     initialize() {
@@ -34,15 +41,17 @@ class Overlay {
     }
 
     update_project_overview() {
-        function update_projects(radio) {
-            if (radio.checked) {
-                const selectedValue = radio.value;
-                console.log(`Selected radio button value: ${selectedValue}`);
-            }
-        }
-        this.#radios.forEach(radio => {
-            //radio.removeEventListener('click', update_projects(radio)); // Remove previous event listener
-            radio.addEventListener('click', update_projects(radio));
+        const radios = document.querySelectorAll('input[name="radio"]');
+
+        radios.forEach(radio => {
+            radio.addEventListener('click', () => {
+                if (radio.checked) {
+                    const selectedValue = radio.value;
+                    console.log(`Selected radio button value: ${selectedValue}`);
+                    this.currentproject = selectedValue;
+                    console.log(this.currentproject);
+                }
+            });
         });
     }
 }

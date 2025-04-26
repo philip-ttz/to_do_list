@@ -9,7 +9,6 @@ import create_project from './scripts/create_project.js';
 const form = document.querySelector('.form');
 const form2 = document.querySelector('.form2');
 let projects = {"All" : [], "Today" : []};
-let currentproject = "All";
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -27,8 +26,9 @@ form2.addEventListener('submit', function (event) {
     document.querySelector(".overlay_2").classList.toggle('hidden');
     create_project(data.title, projects);
     console.log(projects);
-    Displaying.display_project_overview(projects, currentproject);
+    Displaying.display_project_overview(projects, Overlay.currentproject);
     Overlay.update_project_overview();
+    console.log(Overlay.currentproject);
     form2.reset();
 });
 

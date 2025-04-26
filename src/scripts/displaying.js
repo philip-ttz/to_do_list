@@ -7,16 +7,20 @@ class Displaying {
         this.#projects = document.querySelector('.radio-inputs');
     }
 
-    display_project_overview(projects, currentproject){
+    display_project_overview(projects, currentproject) {
         this.#projects.innerHTML = ''; // Clear previous project elements
-        
+
         Object.keys(projects).forEach((project) => {
             const projectElement = document.createElement('label');
             projectElement.classList.add('radio');
+
+            const isChecked = project === currentproject;
+
             projectElement.innerHTML = `
-                <input type="radio" name="radio" value="${project} ">
+                <input type="radio" ${isChecked ? 'checked' : ''} name="radio" value="${project}">
                 <span class="name">${project}</span>
             `;
+
             this.#projects.appendChild(projectElement);
         });
     }
