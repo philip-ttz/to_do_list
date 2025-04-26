@@ -79,3 +79,22 @@
     font-weight: 500;
     color: #d4d4d4;
 }
+
+#completed {
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    color: #d4d4d4;
+    border: none;
+    border-radius: 20px;
+    background-color: #91002e;
+    transition-duration: .2s;
+}
+
+#completed:hover {
+    background-color: #740025;
+}
+
+#completed:active {
+    transform: scale(0.9);
+}

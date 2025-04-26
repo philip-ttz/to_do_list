@@ -9,7 +9,7 @@ import create_project from './scripts/create_project.js';
 const form = document.querySelector('.form');
 const form2 = document.querySelector('.form2');
 const projects_in_form = document.getElementById('project');
-let projects = {"All" : [], "Today" : []};
+let projects = { "All": [], "Today": [] };
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -18,7 +18,7 @@ form.addEventListener('submit', function (event) {
     document.querySelector(".overlay").classList.toggle('hidden');
     const newTask = create_to_do(data.title, data.description, data.duedate, data.priority);
     projects[data.project].push(newTask);
-    if (data.project != "All"){
+    if (data.project != "All") {
         projects["All"].push(newTask);
     }
     if (isToday(new Date(data.duedate))) {
@@ -50,11 +50,27 @@ document.addEventListener('radioChange', () => {
     Displaying.display_task_overview(projects, Overlay.currentproject);
 });
 
+document.addEventListener('completedTask', (event) => {
+    const completedTask = event.detail.taskTitle;
+    const projectName = event.detail.projectName;
+    let dateOfDeletedTask;
+    Object.values(projects).forEach((project) => {
+        project.forEach((task, index) => {
+            if (task.title === completedTask) {
+                dateOfDeletedTask = task.dueDate;
+                console.log(dateOfDeletedTask, "Date of deleted task")
+                project.splice(index, 1)
+            }
+        });
+    });
+    Displaying.display_task_overview(projects, Overlay.currentproject);
+});
+
 Overlay.initialize();
 
 function isToday(date) {
     const today = new Date();
     return date.getFullYear() === today.getFullYear() &&
-           date.getMonth() === today.getMonth() &&
-           date.getDate() === today.getDate();
+        date.getMonth() === today.getMonth() &&
+        date.getDate() === today.getDate();
 }

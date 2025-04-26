@@ -48,6 +48,7 @@ class Displaying {
             card_back.innerHTML = `
                 <p id="description">${task.description}</p>
                 <p id="duedate">Till: ${task.dueDate}</p>
+                <button id="completed">x</button>
                 `;
 
             card.appendChild(card_inner);
@@ -56,6 +57,17 @@ class Displaying {
 
             this.#main.appendChild(card);
         })
+
+        const completedButtons = document.querySelectorAll('button#completed');
+        completedButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const taskTitle = event.target.closest('.card').querySelector('p').textContent;
+                const projectName = currentproject;
+                console.log("Angeklickt wurde", taskTitle, projectName)
+                const customEvent = new CustomEvent('completedTask', { detail: { taskTitle, projectName } });
+                document.dispatchEvent(customEvent);
+            });
+        });
     }
 }
 
