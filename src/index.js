@@ -21,6 +21,9 @@ form.addEventListener('submit', function (event) {
     if (data.project != "All"){
         projects["All"].push(newTask);
     }
+    if (isToday(new Date(data.duedate))) {
+        projects["Today"].push(newTask);
+    }
     Displaying.display_task_overview(projects, Overlay.currentproject);
     console.log(projects);
     form.reset();
@@ -48,3 +51,10 @@ document.addEventListener('radioChange', () => {
 });
 
 Overlay.initialize();
+
+function isToday(date) {
+    const today = new Date();
+    return date.getFullYear() === today.getFullYear() &&
+           date.getMonth() === today.getMonth() &&
+           date.getDate() === today.getDate();
+}
