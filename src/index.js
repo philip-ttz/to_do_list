@@ -5,11 +5,14 @@ import Overlay from './scripts/overlay.js';
 import Displaying from './scripts/displaying.js';
 import create_to_do from './scripts/create_to_do.js';
 import create_project from './scripts/create_project.js';
+import { set_storage, load_storage } from './scripts/local_storage.js';
 
 const form = document.querySelector('.form');
 const form2 = document.querySelector('.form2');
 const projects_in_form = document.getElementById('project');
-let projects = { "All": [], "Today": [] };
+let projects = load_storage();
+Displaying.display_task_overview(projects, Overlay.currentproject);
+Displaying.display_project_overview(projects, Overlay.currentproject);  
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -25,7 +28,7 @@ form.addEventListener('submit', function (event) {
         projects["Today"].push(newTask);
     }
     Displaying.display_task_overview(projects, Overlay.currentproject);
-    console.log(projects);
+    set_storage(projects);
     form.reset();
 });
 form2.addEventListener('submit', function (event) {
@@ -44,6 +47,7 @@ form2.addEventListener('submit', function (event) {
         projectElement.textContent = project;
         projects_in_form.appendChild(projectElement);
     });
+    set_storage(projects);
     form2.reset();
 });
 document.addEventListener('radioChange', () => {
@@ -64,6 +68,7 @@ document.addEventListener('completedTask', (event) => {
         });
     });
     Displaying.display_task_overview(projects, Overlay.currentproject);
+    set_storage(projects);
 });
 
 Overlay.initialize();
